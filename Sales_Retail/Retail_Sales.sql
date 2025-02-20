@@ -143,6 +143,14 @@ FROM retail_sales
 SELECT shift, COUNT(*) as total_orders FROM shift_sales
 GROUP BY shift
 
+--Q.11 Write a SQL query to find customers who have made purchase in all categories
+
+SELECT customer_id
+FROM retail_sales
+GROUP BY 1
+HAVING COUNT(DISTINCT category)=(SELECT COUNT(DISTINCT category)
+				  FROM retail_sales)
+
 
 
 
